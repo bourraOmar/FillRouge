@@ -7,18 +7,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50">
-    <nav class="bg-blue-600 text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="text-2xl font-bold">Auto Rent Pro</div>
-            <div class="space-x-4">
-                <a href="#" class="hover:text-blue-200">Accueil</a>
-                <a href="#" class="hover:text-blue-200">Voitures</a>
-                <a href="#" class="hover:text-blue-200">Services</a>
-                <a href="#" class="hover:text-blue-200">Contact</a>
-                <a href="#" class="bg-white text-blue-600 px-4 py-2 rounded">Connexion</a>
-            </div>
-        </div>
-    </nav>
+    <!-- navigation -->
+    @if (view::exists('partial.navbar'))
+        @include('partail.navbar')
+    @endif
 
     <div class="container mx-auto mt-8 px-4">
         <div class="grid md:grid-cols-2 gap-8">
@@ -78,30 +70,8 @@
         </div>
     </div>
 
-    <footer class="bg-blue-600 text-white mt-8 py-8">
-        <div class="container mx-auto grid md:grid-cols-3 gap-8 px-4">
-            <div>
-                <h3 class="text-xl font-bold mb-4">Auto Rent Pro</h3>
-                <p>L'excellence automobile à votre service.</p>
-            </div>
-            <div>
-                <h4 class="font-bold mb-4">Navigation</h4>
-                <div class="space-y-2">
-                    <a href="#" class="block hover:text-blue-200">Accueil</a>
-                    <a href="#" class="block hover:text-blue-200">Collection</a>
-                    <a href="#" class="block hover:text-blue-200">Services</a>
-                </div>
-            </div>
-            <div>
-                <h4 class="font-bold mb-4">Contact</h4>
-                <p>+33 1 23 45 67 89</p>
-                <p>contact@drive-loc.fr</p>
-                <p>75008 Paris, France</p>
-            </div>
-        </div>
-        <div class="text-center mt-4 text-sm">
-            © 2024 Drive & Loc. Tous droits réservés.
-        </div>
-    </footer>
+    @if (view::exists('partial.footer'))
+        @include('partial.footer')
+    @endif
 </body>
 </html>
