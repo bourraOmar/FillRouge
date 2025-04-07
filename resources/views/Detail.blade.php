@@ -8,8 +8,8 @@
 </head>
 <body class="bg-gray-50">
     <!-- navigation -->
-    @if (view::exists('partial.navbar'))
-        @include('partail.navbar')
+    @if (View::exists('partial.navbar'))
+        @include('partial.navbar')
     @endif
 
     <div class="container mx-auto mt-8 px-4">
@@ -70,7 +70,7 @@
         </div>
     </div>
 
-    @if (view::exists('partial.footer'))
+    @if (View::exists('partial.footer'))
         @include('partial.footer')
     @endif
 </body>

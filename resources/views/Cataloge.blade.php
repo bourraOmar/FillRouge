@@ -9,7 +9,7 @@
 </head>
 <body class="bg-gray-50 min-h-screen">
     <!-- Navigation -->
-    @if (view::exists('partial.navbar'))
+    @if (View::exists('partial.navbar'))
         @include('partial.navbar')
     @endif
     <!-- Main Content -->
