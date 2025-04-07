@@ -20,18 +20,10 @@
 </head>
 
 <body class="bg-white text-gray-800">
-    <nav class="bg-blue-500 shadow-md py-4">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <div class="text-2xl font-bold text-white">Auto Rent Pro</div>
-            <div class="space-x-6">
-                <a href="{{ route('home') }}" class="text-white hover:text-gray-300">Accueil</a>
-                <a href="{{ route('cataloge') }}" class="text-white hover:text-gray-300">Voitures</a>
-                <a href="#" class="text-white hover:text-gray-300">Services</a>
-                <a href="#Contact" class="text-white hover:text-gray-300">Contact</a>
-                <a href="#" class="bg-white text-blue-500 px-4 py-2 rounded hover:text-blue-700">Connexion</a>
-            </div>
-        </div>
-    </nav>
+    <!-- navigation -->
+    @if (View::exists('partial.navbar'))
+        @include('partial.navbar')
+    @endif
 
     <header class="container mx-auto px-4 py-16 flex items-center">
         <div class="w-1/2 pr-8">
@@ -128,25 +120,36 @@
             <div class="flex flex-col md:flex-row">
                 <div class="md:w-1/2 mb-10 md:mb-0">
                     <p class="text-gray-600 mb-8">
-                        Vous avez des questions ou besoin d'assistance ? Notre équipe est là pour vous aider. N'hésitez pas à nous contacter par téléphone, email ou via le formulaire de contact ci-dessous.
+                        Vous avez des questions ou besoin d'assistance ? Notre équipe est là pour vous aider. N'hésitez
+                        pas à nous contacter par téléphone, email ou via le formulaire de contact ci-dessous.
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-center">
-                            <svg class="w-6 h-6 text-blue-800 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            <svg class="w-6 h-6 text-blue-800 mr-4" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
                             </svg>
                             <span>+33 1 23 45 67 89</span>
                         </div>
                         <div class="flex items-center">
-                            <svg class="w-6 h-6 text-blue-800 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            <svg class="w-6 h-6 text-blue-800 mr-4" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
                             </svg>
                             <span>contact@drive-loc.fr</span>
                         </div>
                         <div class="flex items-center">
-                            <svg class="w-6 h-6 text-blue-800 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <svg class="w-6 h-6 text-blue-800 mr-4" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
                             <span>75008 Paris, France</span>
                         </div>
@@ -156,48 +159,31 @@
                     <form class="space-y-4">
                         <div>
                             <label for="name" class="block text-gray-700 mb-2">Nom</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800">
+                            <input type="text" id="name"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800">
                         </div>
                         <div>
                             <label for="email" class="block text-gray-700 mb-2">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800">
+                            <input type="email" id="email"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800">
                         </div>
                         <div>
                             <label for="message" class="block text-gray-700 mb-2">Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800"></textarea>
+                            <textarea id="message" rows="4"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800"></textarea>
                         </div>
-                        <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600">Envoyer</button>
+                        <button type="submit"
+                            class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600">Envoyer</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-brand-blue text-white py-8">
-        <div class="container mx-auto px-4 flex justify-between">
-            <div>
-                <h3 class="text-xl font-bold mb-4">Auto Rent Pro</h3>
-                <p>L'excellence automobile à votre service.</p>
-            </div>
-            <div>
-                <h4 class="font-semibold mb-2">Navigation</h4>
-                <div class="space-y-1">
-                    <a href="#" class="block hover:text-gray-200">Accueil</a>
-                    <a href="#" class="block hover:text-gray-200">Collection</a>
-                    <a href="#" class="block hover:text-gray-200">Services</a>
-                </div>
-            </div>
-            <div>
-                <h4 class="font-semibold mb-2">Contact</h4>
-                <p>+33 1 23 45 67 89</p>
-                <p>contact@drive-loc.fr</p>
-                <p>75008 Paris, France</p>
-            </div>
-        </div>
-        <div class="text-center mt-8 text-sm">
-            © 2024 Drive & Loc. Tous droits réservés.
-        </div>
-    </footer>
+    <!-- footer -->
+     @if (View::exists('partial.footer'))
+        @include('partial.footer')
+     @endif
 </body>
 
 </html>
