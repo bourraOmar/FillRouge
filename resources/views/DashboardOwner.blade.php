@@ -209,31 +209,9 @@
         </div>
 
         <!-- Footer -->
-        <footer class="bg-brand-blue text-white py-6">
-            <div class="container mx-auto px-4 flex justify-between">
-                <div>
-                    <h3 class="font-bold mb-2">Auto Rent Pro</h3>
-                    <p class="text-sm">L'excellence automobile à votre service.</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-2">Navigation</h4>
-                    <nav class="space-y-1">
-                        <a href="#" class="block text-sm hover:text-gray-200">Accueil</a>
-                        <a href="#" class="block text-sm hover:text-gray-200">Collection</a>
-                        <a href="#" class="block text-sm hover:text-gray-200">Services</a>
-                    </nav>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-2">Contact</h4>
-                    <p class="text-sm">+33 1 23 45 67 89</p>
-                    <p class="text-sm">contact@drive-loc.fr</p>
-                    <p class="text-sm">75068 Paris, France</p>
-                </div>
-            </div>
-            <div class="text-center text-sm mt-4">
-                © 2024 Drive & Loc. Tous droits réservés.
-            </div>
-        </footer>
+        @if (View::exists('partia'))
+        
+        @endif
     </div>
 </body>
 </html>
