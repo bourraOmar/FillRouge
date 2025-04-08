@@ -8,7 +8,7 @@
                 <a href="{{ route('cataloge') }}" class="hover:text-blue-200">Voitures</a>
                 <a href="#" class="hover:text-blue-200">Services</a>
                 <a href="#" class="hover:text-blue-200">Contact</a>
-                <a href="#" class="bg-white text-blue-500 px-4 py-2 rounded-md">Connexion</a>
+                <a href="{{ route('login') }}" class="bg-white text-blue-500 px-4 py-2 rounded-md">Connexion</a>
             </div>
         </div>
     </nav>
