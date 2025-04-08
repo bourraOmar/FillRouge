@@ -16,16 +16,16 @@ Route::get('/detail', function () {
 })->name('detail');
 Route::get('/signup', function (){
     return view('SignUp');
-});
+})->name('signup');
 Route::get('/login', function (){
     return view('login');
-});
+})->name('login');
 Route::get('/profile', function (){
     return view('profil');
-});
+})->name('profil');
 Route::get('/dashboardAdmin', function (){
     return view('DashboardAdmin');
-});
+})->name('dashboardAdmin');
 Route::get('/dashboardOwner', function (){
     return view('DashboardOwner');
-});
+})->name('dashboardOwner');
