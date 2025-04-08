@@ -43,8 +43,8 @@
                     <h3 class="text-lg font-semibold mt-1">dacia sandero</h3>
                     <div class="flex justify-between items-center mt-3">
                         <span class="text-xl font-bold text-gray-800">7$/jour</span>
-                        <button
-                            class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">Réserver</button>
+                        <a href="{{ route('detail') }}"><button
+                            class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">Réserver</button></a>
                     </div>
                 </div>
             </div>
