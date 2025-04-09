@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sign In</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="h-screen w-screen bg-gray-100">
+  @if(session('email_error'))
+    <div class="mb-4 text-red-600 font-semibold">{{ session('email_error') }}</div>
+  @endif
+
+  @if(session('password_error'))
+    <div class="mb-4 text-red-600 font-semibold">{{ session('password_error') }}</div>
+  @endif
+
+  @if ($errors->any())
+    <div class="mb-4 text-red-600">
+    <ul class="list-disc pl-5">
+      @foreach ($errors->all() as $error)
+      <li class="font-semibold">{{ $error }}</li>
+    @endforeach
+    </ul>
+    </div>
+  @endif
 
   <div class="flex flex-col md:flex-row h-full">
 
     <!-- Left Side / Image Section -->
     <div class="md:w-1/2 w-full h-1/2 md:h-full relative">
-      <img src="{{ asset('storage/img/car1.jpg') }}" alt="Classic car" class="w-full h-full object-cover"/>
+      <img src="{{ asset('storage/img/car1.jpg') }}" alt="Classic car" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-blue-600 opacity-70"></div>
       <div class="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-6">
         <h2 class="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Welcome Back</h2>
@@ -34,24 +53,25 @@
         <form class="space-y-6 text-lg" method="POST" action="{{ route('login') }}">
           @csrf
           <div>
-            <label for="email" class="block text-lg font-medium text-gray-700 mb-2">Email address</label>
+            <label for="email" class="block text-lg font-medium text-gray-700 mb-2 " value="" {{ old('email') }}>Email
+              address</label>
             <input type="email" id="email" placeholder="you@example.com"
-                   class="w-full px-5 py-3 text-lg border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+              class="w-full px-5 py-3 text-lg border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
           <div>
             <label for="password" class="block text-lg font-medium text-gray-700 mb-2">Password</label>
             <input type="password" id="password" placeholder="Password"
-                   class="w-full px-5 py-3 text-lg border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+              class="w-full px-5 py-3 text-lg border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
           <div class="flex items-center justify-between text-base">
             <label class="flex items-center">
-              <input type="checkbox" class="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"/>
+              <input type="checkbox" class="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
               <span class="ml-3 text-gray-700">Remember me</span>
             </label>
             <a href="#" class="text-blue-600 hover:underline">Forgot password?</a>
           </div>
           <button type="submit"
-                  class="w-full bg-blue-600 text-white text-lg py-3 rounded-xl hover:bg-blue-700 transition duration-300 font-semibold shadow-lg">
+            class="w-full bg-blue-600 text-white text-lg py-3 rounded-xl hover:bg-blue-700 transition duration-300 font-semibold shadow-lg">
             Sign in
           </button>
         </form>
@@ -61,4 +81,5 @@
   </div>
 
 </body>
+
 </html>
