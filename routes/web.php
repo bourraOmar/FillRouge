@@ -21,11 +21,11 @@ Route::get('/login', function (){
     return view('login');
 })->name('login');
 Route::get('/profile', function (){
-    return view('profil');
-})->name('profil');
+    return view('profile');
+})->name('profile')->middleware('role:client');
 Route::get('/dashboardAdmin', function (){
     return view('DashboardAdmin');
-})->name('dashboardAdmin');
+})->name('dashboardAdmin')->middleware('role:admin');
 Route::get('/dashboardOwner', function (){
-    return view('DashboardOwner');
+    return view('DashboardOwner')->middleware('role:owner');
 })->name('dashboardOwner');
