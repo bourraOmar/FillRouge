@@ -31,7 +31,8 @@
           <a href="{{ route('signup') }}" class="text-blue-600 hover:underline font-semibold">Sign up</a>
         </p>
 
-        <form class="space-y-6 text-lg">
+        <form class="space-y-6 text-lg" method="POST" action="{{ route('login') }}">
+          @csrf
           <div>
             <label for="email" class="block text-lg font-medium text-gray-700 mb-2">Email address</label>
             <input type="email" id="email" placeholder="you@example.com"
