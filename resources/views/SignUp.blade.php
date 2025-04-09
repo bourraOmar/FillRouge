@@ -31,30 +31,31 @@
           <a href="{{ route('login') }}" class="text-blue-600 hover:underline font-medium"> Log in</a>
         </p>
 
-        <form class="space-y-6 text-lg">
+        <form class="space-y-6 text-lg" mothed="POST" action="{{ route('signup') }}">
+          @csrf
           <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
             <div class="w-full">
-              <label for="firstName" class="block text-lg font-medium text-gray-700 mb-2">First name</label>
-              <input type="text" id="firstName" placeholder="first name"
+              <label for="first_name" class="block text-lg font-medium text-gray-700 mb-2">First name</label>
+              <input type="text" id="first_name" value="{{ old('first_name') }}" placeholder="first name"
                 class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" />
             </div>
             <div class="w-full">
-              <label for="lastName" class="block text-lg font-medium text-gray-700 mb-2">Last name</label>
-              <input type="text" id="lastName" placeholder="last name"
+              <label for="last_name" class="block text-lg font-medium text-gray-700 mb-2">Last name</label>
+              <input type="text" id="last_name" value="{{ old('last_name') }}" placeholder="last name"
                 class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" />
             </div>
           </div>
           <div>
             <label for="email" class="block text-lg font-medium text-gray-700 mb-2">Email address</label>
-            <input type="email" id="email" placeholder="you@example.com"
+            <input type="email" id="email" vlaue="{{ old('email') }}" placeholder="you@example.com"
               class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" />
           </div>
           <div>
             <label for="role" class="block text-lg font-medium text-gray-700 mb-2">Role</label>
             <select name="role" id="role"
               class="w-full px-5 py-3 border border-gray-300 rounded-xl bg-white text-gray-700 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm">
-              <option value="client">Client</option>
-              <option value="owner">Owner</option>
+              <option value="client" {{ old('role') == 'client' ? 'selected' : ''  }}>Client</option>
+              <option value="owner" {{ old('role') == 'owner' ? 'selected' : '' }}>Owner</option>
             </select>
           </div>
           <div>
