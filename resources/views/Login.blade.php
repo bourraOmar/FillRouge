@@ -50,17 +50,17 @@
           <a href="{{ route('signup') }}" class="text-blue-600 hover:underline font-semibold">Sign up</a>
         </p>
 
-        <form class="space-y-6 text-lg" method="POST" action="{{ route('login') }}">
+        <form class="space-y-6 text-lg" method="POST" action="{{ route('login.post') }}">
           @csrf
           <div>
             <label for="email" class="block text-lg font-medium text-gray-700 mb-2 " value="" {{ old('email') }}>Email
               address</label>
-            <input type="email" id="email" placeholder="you@example.com"
+            <input name="email" type="email" id="email" placeholder="you@example.com" required
               class="w-full px-5 py-3 text-lg border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
           <div>
             <label for="password" class="block text-lg font-medium text-gray-700 mb-2">Password</label>
-            <input type="password" id="password" placeholder="Password"
+            <input name="password" type="password" id="password" placeholder="Password" required
               class="w-full px-5 py-3 text-lg border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
           <div class="flex items-center justify-between text-base">
