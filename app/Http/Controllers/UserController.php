@@ -9,54 +9,55 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function register(Request $request)
+    public function signup(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'first_name' => 'required|string|max:20|min:3',
             'last_name'  => 'required|string|max:50|min:3',
             'email'      => 'required|string|email|max:255|unique:users',
-            'role'       => 'required|in:client,owner',
             'password'   => 'required|string|min:8',
+            'role'       => 'required|in:admin,owner,client',
         ]);
 
         $user = User::create([
             'first_name' => $request->first_name,
             'last_name'  => $request->last_name,
             'email'      => $request->email,
-            'role'       => $request->role,
             'password'   => Hash::make($request->password),
+            'role'       => $request->role,
         ]);
 
         Auth::login($user);
-        return redirect()->route('profile');
-    }
 
+
+        return redirect()->route('login');
+    }
 
     public function login(Request $request)
     {
-        if (Auth::check()) {
-            return redirect()->route('profile');
-        }
+        // dd($request->all());
 
-        $request->validate([
-            'email'    => 'required|string|email|max:250',
-            'password' => 'required|string|min:8|max:250',
+        $credentials = $request->validate([
+            'email'    => 'required|email',
+            'password' => 'required|string',
         ]);
 
-        $user = User::where('email', $request->email)->first();
-
-        if ($user) {
-            if (!Hash::check($request->password, $user->password)) {
-                return redirect('/login')->with('password_error', 'Invalid password, try again');
-            }
-
-            Auth::login($user);
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/');
+
+            $user = Auth::user();
+            if ($user->role === 'owner') {
+                return redirect()->route('dashboardOwner');
+            } else {
+                return redirect()->route('profile');
+            }
         }
 
-        return redirect('/login')->with('email_error', 'Invalid email, try again');
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
     }
 
     public function logout(Request $request)
