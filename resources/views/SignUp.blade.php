@@ -31,23 +31,23 @@
           <a href="{{ route('login') }}" class="text-blue-600 hover:underline font-medium"> Log in</a>
         </p>
 
-        <form class="space-y-6 text-lg" mothed="POST" action="{{ route('signup') }}">
+        <form class="space-y-6 text-lg" method="POST" action="{{ route('signup.post') }}">
           @csrf
           <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
             <div class="w-full">
               <label for="first_name" class="block text-lg font-medium text-gray-700 mb-2">First name</label>
-              <input type="text" id="first_name" value="{{ old('first_name') }}" placeholder="first name"
+              <input name="first_name" type="text" id="first_name" value="{{ old('first_name') }}" placeholder="first name"
                 class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" />
             </div>
             <div class="w-full">
               <label for="last_name" class="block text-lg font-medium text-gray-700 mb-2">Last name</label>
-              <input type="text" id="last_name" value="{{ old('last_name') }}" placeholder="last name"
+              <input name="last_name" type="text" id="last_name" value="{{ old('last_name') }}" placeholder="last name"
                 class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" />
             </div>
           </div>
           <div>
             <label for="email" class="block text-lg font-medium text-gray-700 mb-2">Email address</label>
-            <input type="email" id="email" vlaue="{{ old('email') }}" placeholder="you@example.com"
+            <input name="email" type="email" id="email" value="{{ old('email') }}" placeholder="you@example.com"
               class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" />
           </div>
           <div>
@@ -60,7 +60,7 @@
           </div>
           <div>
             <label for="password" class="block text-lg font-medium text-gray-700 mb-2">Password</label>
-            <input type="password" id="password" placeholder="Password"
+            <input name="password" type="password" id="password" placeholder="Password"
               class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg" />
           </div>
           <button type="submit"
