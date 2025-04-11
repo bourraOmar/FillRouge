@@ -9,8 +9,8 @@
 </head>
 
 <body class="bg-gray-100 min-h-screen flex flex-col">
-    @if (View::exists('partial.navbar'))
-        @include('partial.navbar')
+    @if (View::exists('partial.nav_profile'))
+        @include('partial.nav_profile')
     @endif
 
     <div class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-6 p-6">

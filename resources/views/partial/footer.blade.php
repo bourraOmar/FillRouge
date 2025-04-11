@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="bg-blue-500 text-white py-8">
+<footer class="bg-blue-700 text-white py-8">
     <div class="container mx-auto flex justify-between px-4">
         <div>
             <h3 class="text-xl font-bold mb-4">Auto Rent Pro</h3>
@@ -21,6 +21,6 @@
         </div>
     </div>
     <div class="text-center mt-4 text-sm">
-        © 2024 Drive & Loc. Tous droits reservés.
+        © 2024 Auto Rent Pro. Tous droits reservés.
     </div>
 </footer>

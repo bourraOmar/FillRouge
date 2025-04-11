@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,24 +18,21 @@
         }
     </script>
 </head>
+
 <body class="bg-gray-100">
     <div class="min-h-screen bg-gray-100">
         <!-- Header -->
-        <header class="bg-brand-blue text-white py-4 px-6 flex justify-between items-center">
-            <div class="text-lg font-bold">Auto Rent Pro</div>
-            <nav class="space-x-4">
-                <a href="#" class="hover:text-gray-200">Accueil</a>
-                <a href="#" class="hover:text-gray-200">Voitures</a>
-                <a href="#" class="hover:text-gray-200">Services</a>
-                <a href="#" class="hover:text-gray-200">Contact</a>
-                <a href="#" class="bg-red-500 px-3 py-1 rounded hover:bg-red-600">Logout</a>
-            </nav>
-        </header>
+        @if (View::exists('partial.nav_profile'))
+            @include('partial.nav_profile')
+        @endif
 
         <!-- Dashboard Hero -->
-        <div class="relative h-64 bg-gradient-to-r from-brand-blue to-purple-600 flex items-center">
-            <div class="container mx-auto px-4">
-                <h1 class="text-4xl font-bold text-white">Propriétaire Space Dashboard</h1>
+        <div class="relative h-48 bg-gradient-to-r from-blue-500 to-blue-700 flex items-center">
+            <div class="z-50 container mx-auto px-4">
+                <h1 class="text-4xl font-bold text-white">Admin Space - Dashboard</h1>
+            </div>
+            <div class="absolute inset-0 opacity-30">
+                <img src="{{ asset('storage/img/car5.jpg') }}" alt="Car Background" class="w-full h-full object-cover">
             </div>
         </div>
 
@@ -209,9 +207,10 @@
         </div>
 
         <!-- Footer -->
-        @if (View::exists('partia'))
-        
+        @if (View::exists('partial.footer'))
+            @include('partial.footer')
         @endif
     </div>
 </body>
+
 </html>

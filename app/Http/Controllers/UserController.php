@@ -48,7 +48,9 @@ class UserController extends Controller
 
 
             $user = Auth::user();
-            if ($user->role === 'owner') {
+            if ($user->role === 'admin') {
+                return redirect()->route('dashboardAdmin');
+            }elseif ($user->role === 'owner') {
                 return redirect()->route('dashboardOwner');
             } else {
                 return redirect()->route('profile');
