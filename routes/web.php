@@ -36,7 +36,7 @@ Route::get('/detail', function () {
 Route::get('/profile', function () {
     $user = Auth::user();
     return view('Profil',compact('user'));
-})->name('profile');
+})->middleware('client')->name('profile');
 
 Route::get('/dashboardOwner', function () {
     $user = Auth::user();
@@ -48,7 +48,7 @@ Route::get('/dashboardAdmin', function () {
     return view('DashboardAdmin');
 })->name('dashboardAdmin');
 
-Route::middleware(['RoleMiddleware'])->prefix('admin')->group(function () {
+// Route::middleware(['RoleMiddleware'])->prefix('admin')->group(function () {
 
 
-});
+// });
