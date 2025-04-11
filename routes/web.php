@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -46,7 +47,7 @@ Route::get('/dashboardOwner', function () {
 Route::get('/dashboardAdmin', function () {
     $user = Auth::user();
     return view('DashboardAdmin');
-})->name('dashboardAdmin');
+})->middleware('admin')->name('dashboardAdmin');
 
 // Route::middleware(['RoleMiddleware'])->prefix('admin')->group(function () {
 
