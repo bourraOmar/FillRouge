@@ -34,22 +34,28 @@ Route::get('/detail', function () {
 })->name('detail');
 
 // profiles
-Route::get('/profile', function () {
-    $user = Auth::user();
-    return view('Profil',compact('user'));
-})->middleware('client')->name('profile');
 
-Route::get('/dashboardOwner', function () {
-    $user = Auth::user();
-    return view('DashboardOwner');
-})->name('dashboardOwner');
+Route::middleware(['client'])->prefix('client')->group(function(){
+    Route::get('/profile', function () {
+        $user = Auth::user();
+        return view('Profil', compact('user'));
+    })->name('profile');
+    
+});
 
-Route::get('/dashboardAdmin', function () {
-    $user = Auth::user();
-    return view('DashboardAdmin');
-})->middleware('admin')->name('dashboardAdmin');
+Route::middleware(['owner'])->prefix('owner')->group(function(){
+    Route::get('/dashboardOwner', function () {
+        $user = Auth::user();
+        return view('DashboardOwner');
+    })->name('dashboardOwner');
 
-// Route::middleware(['RoleMiddleware'])->prefix('admin')->group(function () {
+});
 
+Route::middleware(['admin'])->prefix('admin')->group(function () {
+    Route::get('/dashboardAdmin', function () {
+        $user = Auth::user();
+        return view('DashboardAdmin');
+    })->name('dashboardAdmin');
 
-// });
+});
+
