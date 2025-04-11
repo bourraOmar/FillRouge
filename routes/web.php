@@ -5,15 +5,21 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
 // authentification
-Route::get('/signup', function () {
-    return view('SignUp');
-})->name('signup');
-Route::post('/signup', [UserController::class, 'signup'])->name('signup.post');
+Route::middleware('guest.redirect')->group(function () {
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-Route::post('/login', [UserController::class, 'login'])->name('login.post');
+    Route::get('/signup', function () {
+        return view('SignUp');
+    })->name('signup');
+    Route::post('/signup', [UserController::class, 'signup'])->name('signup.post');
+
+    Route::get('/login', function () {
+        return view('login');
+    })->name('login');
+    Route::post('/login', [UserController::class, 'login'])->name('login.post');
+
+});
+
+
 
 Route::post('/logout', function () {
     Auth::logout();
@@ -35,15 +41,15 @@ Route::get('/detail', function () {
 
 // profiles
 
-Route::middleware(['client'])->prefix('client')->group(function(){
+Route::middleware(['client'])->prefix('client')->group(function () {
     Route::get('/profile', function () {
         $user = Auth::user();
         return view('Profil', compact('user'));
     })->name('profile');
-    
+
 });
 
-Route::middleware(['owner'])->prefix('owner')->group(function(){
+Route::middleware(['owner'])->prefix('owner')->group(function () {
     Route::get('/dashboardOwner', function () {
         $user = Auth::user();
         return view('DashboardOwner');
