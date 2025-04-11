@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'client' => App\Http\Middleware\clientMiddleware::class,
             'admin' => App\Http\Middleware\adminMiddleware::class,
             'owner' => App\Http\Middleware\ownerMiddleware::class,
+            'guest.redirect' => App\Http\Middleware\AuthenticatedUser::class,
         ]);
     })
     ->withExceptions(function ($exceptions) {
